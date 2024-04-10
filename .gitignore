@@ -10,3 +10,5 @@ GenerateDocWebsite.cmd
 # DocFx generated files
 /docs/_site/**
 /docs/reference/**
+/docs/general/toc.yml
+/docs/services/toc.yml
