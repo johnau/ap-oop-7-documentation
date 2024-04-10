@@ -34,8 +34,8 @@
     ],
     "dest": "_site",
     "globalMetadata": {
-      "_appTitle": "QuickStart Documentation",
-      "_appName": "QUickStart Documentation",
+      "_appTitle": "TAFE Task Manager Documentation",
+      "_appName": "TAFE Task Manager Documentation",
       "_appLogoPath": "images/logo.png",
       "_appFaviconPath": "images/favicon.ico",
       "_enableSearch": true,
