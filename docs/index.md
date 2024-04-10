@@ -10,7 +10,18 @@ An attempt to manually write docs in Markdown using [Obsidian](https://obsidian.
 > [!TIP]
 >
 > **TLDR;**
+>
 > This project was created for an Assignment
+
+## Overview of Docs
+
+- [General Documentation](./general/README.md)
+  - [Architectural Decisions](./general/architecture-decisions/README.md) - *Decisions regarding the design of the application, including decision log.*
+  - [Getting Started](./general/getting-started/README.md) - *How to use the Task Manager*
+  - [Documentation Guidelines](./general/guidelines/README.md) - *How to add to these docs*
+- [Service Documentation](./services/README.md) - *Task Manager Core services*
+  - [TaskController Documentation](./services/TaskController/README.md) - *API service*
+  - [TaskManagerCore Reference](xref:TaskManagerCore) - *Code reference*
 
 ## Quick Start
 
@@ -58,13 +69,6 @@ namespace MyApp {
   }
 }
 ```
-
-## Overview of Docs
-
-- [General Documentation](./general/README.md)
-- [Service Documentation](./services/README.md)
-  - [TaskController Documentation](./services/TaskController/README.md)
-  - [TaskManagerCore Namespace Reference](xref:TaskManagerCore)
 
 ## Project structure
 
