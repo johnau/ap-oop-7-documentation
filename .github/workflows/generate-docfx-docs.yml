@@ -17,34 +17,6 @@ concurrency:
   cancel-in-progress: false
   
 jobs:
-  update-toc-yml:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Extract Repo Name
-        id: extract_repo_name
-        run: echo "::set-output name=name::${{ github.repository }}"
-
-      - name: Update TOC
-        run: |
-              sed -i "s|/services/|/${{ steps.extract_repo_name.outputs.name }}/services/|g" docs/toc.yml
-              sed -i "s|/general/|/${{ steps.extract_repo_name.outputs.name }}/general/|g" docs/toc.yml
-
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add docs/toc.yml
-          git commit -m "Update TOC with repository name"
-      
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
-
   publish-docs:
     environment:
       name: github-pages
@@ -53,6 +25,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+
+    - name: Extract Repo Name
+      id: extract_repo_name
+      run: echo "::set-output name=name::${{ github.repository }}"
+
+    - name: Update TOC
+      run: |
+        sed -i "s|/services/|/${{ steps.extract_repo_name.outputs.name }}/services/|g" docs/toc.yml
+        sed -i "s|/general/|/${{ steps.extract_repo_name.outputs.name }}/general/|g" docs/toc.yml
+
     - name: Dotnet Setup
       uses: actions/setup-dotnet@v3
       with:
