@@ -41,8 +41,8 @@ namespace MyApp {
 
     public void CreateFolderAndTask()
     {
-      TaskManager.CreateTaskFolder(new CreateFolderDto("Work")); // Folder called 'work'
-      TaskManager.CreateTaskFolder(new CreateFolderDto("School")); // Folder called 'school'
+      TaskManager.CreateTaskFolder(new CreateFolderDto("Work")); // 'work' folder
+      TaskManager.CreateTaskFolder(new CreateFolderDto("School")); // 'school' folder
 
       var task = new CreateTaskDto(TaskType.SINGLE,
               "work", // folder created above (case-insensitive)
@@ -57,8 +57,8 @@ namespace MyApp {
       // Updating Task data
       var success = TaskManager.UpdateTaskProperty(taskId, "description", "Project Due");
 
-      // Move a Task to another folder
-      var success1 = TaskManager.MoveTask(taskId, "work", "school"); // from 'work' to 'school' folder
+      // Move a Task (eg. from 'work' to 'school')
+      var success1 = TaskManager.MoveTask(taskId, "work", "school");
 
       // Complete a task
       var success2 = TaskManager.CompleteTask(taskId);
