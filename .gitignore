@@ -5,7 +5,6 @@
 */obj
 
 # DocFx files
-docfx.*
 GenerateDocWebsite.cmd
 
 # DocFx generated files
