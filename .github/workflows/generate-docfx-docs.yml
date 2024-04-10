@@ -23,14 +23,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Get Repository Name
-        id: repo_name
+      - name: Extract Repo Name
+        id: extract_repo_name
         run: echo "::set-output name=name::${{ github.repository }}"
 
       - name: Update TOC
         run: |
-              sed -i "s|/services/|/${{ steps.extract_repo_name.outputs.repo_name }}/services/|g" docs/toc.yml
-              sed -i "s|/general/|/${{ steps.extract_repo_name.outputs.repo_name }}/general/|g" docs/toc.yml
+              sed -i "s|/services/|/${{ steps.extract_repo_name.outputs.name }}/services/|g" docs/toc.yml
+              sed -i "s|/general/|/${{ steps.extract_repo_name.outputs.name }}/general/|g" docs/toc.yml
 
       - name: Commit changes
         run: |
@@ -38,7 +38,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git add docs/toc.yml
           git commit -m "Update TOC with repository name"
-          git push -u origin main
       
       - name: Push changes
         uses: ad-m/github-push-action@master
