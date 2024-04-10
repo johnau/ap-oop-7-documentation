@@ -29,8 +29,8 @@ jobs:
 
       - name: Update TOC
         run: |
-                sed -i "s|/services/|/${{ steps.extract_repo_name.outputs.repo_name }}/services/|g" docs/toc.yml
-                sed -i "s|/general/|/${{ steps.extract_repo_name.outputs.repo_name }}/general/|g" docs/toc.yml
+              sed -i "s|/services/|/${{ steps.extract_repo_name.outputs.repo_name }}/services/|g" docs/toc.yml
+              sed -i "s|/general/|/${{ steps.extract_repo_name.outputs.repo_name }}/general/|g" docs/toc.yml
 
       - name: Commit changes
         run: |
@@ -42,7 +42,8 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
 
   publish-docs:
     environment:
