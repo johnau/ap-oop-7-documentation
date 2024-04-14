@@ -189,6 +189,7 @@ article h4 {
 /* TOC: link */
 .toc .nav > li > a {
   color: var(--font-color);
+  list-style-type: disc;
 }
 
 /* TOC filter box */
