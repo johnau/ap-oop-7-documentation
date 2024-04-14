@@ -189,7 +189,10 @@ article h4 {
 /* TOC: link */
 .toc .nav > li > a {
   color: var(--font-color);
-  list-style-type: disc;
+}
+.toc .nav > li > ul.nav.level2 > li > a::before {
+  content: '\2022'; /* Unicode character for bullet (•) */
+  margin-right: 0.5em; /* Adjust spacing between bullet and text */
 }
 
 /* TOC filter box */
